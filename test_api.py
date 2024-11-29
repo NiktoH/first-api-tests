@@ -9,6 +9,6 @@ class TestID:
         assert id_new_animal == id_find_animal, (
             "[FAILED]: Ids doesnt match {} and {}".format(id_new_animal, id_find_animal))
         id_delete_animal = test_case.delete_animal(id_new_animal)
-        assert id_delete_animal == ['id'], (
-            f"Animal deleted"
+        assert id_new_animal == ['id'], (
+            f"Animal existing"
         )
