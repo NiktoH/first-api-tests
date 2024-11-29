@@ -1,3 +1,6 @@
+import json
+
+
 from request import Request
 
 
@@ -7,7 +10,7 @@ class TestCase:
         self.ID = str()
         self.response = str()
 
-    def create_animal(self, name: str ='Olaf') -> str:
+    def create_animal(self, name: str ='Lalka') -> str:
         """
         Создание нового животного через API-запрос
         :param name: Имя животного, по умолчанию - Olaf
@@ -43,4 +46,9 @@ class TestCase:
         """
         url = 'pet/' + str(animal_id)
         self.response = self.request.send_request('get', url)
+        return self.response.json()
+
+    def delete_animal(self, animal_id: str) -> dict:
+        url = 'pet/' + str(animal_id)
+        self.response = self.request.send_request('delete', url)
         return self.response.json()
